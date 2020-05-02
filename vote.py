@@ -39,6 +39,8 @@ proxy = {"http": 'http://' + pro}
 link = 'https://poll.fm/10111408'
 #PDI ANSWER IS YOUR VOTE CHOICE
 PDI_answer = '46414409'
+#POLL ID
+poll_id = '10111408'
 
 head = {
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36',
@@ -71,13 +73,13 @@ def inform():
         hidden_fixed = hidden[1:-2]
 
         pz = re.search("type='hidden' name='pz' value='(.*?)'",poll.text).group(1)
-        
+
 inform()
 
 while True:
     try:
         inform()
-        link_me = 'https://poll.fm/vote?va=10&pt=0&r=1&p=10111408&a=' + PDI_answer + '%2C&o=&t=' + t_fixed + '&token=' + hidden_fixed + '&pz=' + pz
+        link_me = 'https://poll.fm/vote?va=10&pt=0&r=1&p=' + poll_id + '8&a=' + PDI_answer + '%2C&o=&t=' + t_fixed + '&token=' + hidden_fixed + '&pz=' + pz
         vote = s.get(link_me, headers=head, timeout=5, proxies=proxy, verify=False)
         url = vote.url
     except:
