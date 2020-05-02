@@ -79,7 +79,7 @@ inform()
 while True:
     try:
         inform()
-        link_me = 'https://poll.fm/vote?va=10&pt=0&r=1&p=' + poll_id + '8&a=' + PDI_answer + '%2C&o=&t=' + t_fixed + '&token=' + hidden_fixed + '&pz=' + pz
+        link_me = 'https://poll.fm/vote?va=10&pt=0&r=1&p=' + poll_id + '&a=' + PDI_answer + '%2C&o=&t=' + t_fixed + '&token=' + hidden_fixed + '&pz=' + pz
         vote = s.get(link_me, headers=head, timeout=5, proxies=proxy, verify=False)
         url = vote.url
     except:
